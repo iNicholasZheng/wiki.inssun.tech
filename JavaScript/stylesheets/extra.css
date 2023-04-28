@@ -1,53 +1,52 @@
-.md-grid {
+/* 设置版心区域 */
+/* .md-grid {
     max-width: 100%;
-}
+} */
 
+/* 常规字体 */
 @font-face {
-    font-family: jetbrains mono;
-    src: url(https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.woff2) format('woff2'), url(https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.woff) format('woff'), url(https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.ttf) format('truetype'), url(https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.svg#JetBrainsMono-Regular) format('svg');
-    font-weight: 400;
+    font-family: 'MiSans';
+    src: url('https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.woff2') format('woff2'),
+    url('https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.woff') format('woff'),
+    url('https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.ttf') format('truetype'),
+    url('https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.svg#MiSans-Regular') format('svg');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap
-}
-
-@font-face {
-    font-family: misans;
-    src: url(https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.woff2) format('woff2'), url(https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.woff) format('woff'), url(https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.ttf) format('truetype'), url(https://res.inssun.cn/font/MiSans-Regular/MiSans-Regular.svg#MiSans-Regular) format('svg');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap
+    font-display: swap;
 }
 
 :root {
-    --md-text-font: "misans";
+    --md-text-font: "MiSans";
+}
+
+/* 等宽字体 */
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.woff2') format('woff2'),
+    url('https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.woff') format('woff'),
+    url('https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.ttf') format('truetype'),
+    url('https://res.inssun.cn/font/JetBrainsMono-Regular/JetBrainsMono-Regular.svg#JetBrainsMono-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
-    --md-code-font: "jetbrains mono", "MiSans";
+    --md-code-font: "JetBrains Mono", Misans;
 }
 
-.md-typeset h1,
-.md-nav__title {
-    color: #000000;
+/* 去除导航阴影 */
+.md-header--shadow {
+    box-shadow: none;
 }
 
-.md-typeset h1 {
-    font-weight: bold;
-}
-
-[data-md-color-primary=black] {
-    --md-typeset-a-color: #4287ff;
-}
+/* 去除导航字体加粗 */
 
 .md-header__topic:first-child {
     font-weight: normal;
 }
 
-.md-nav__title {
-    font-weight: normal;
-}
-
-:root,
-[data-md-color-scheme=default] {
-    --md-default-fg-color: #000000;
+/* 设置导航字体颜色 */
+:root, [data-md-color-scheme=default] {
+    --md-default-fg-color--light: #0000008;
 }
