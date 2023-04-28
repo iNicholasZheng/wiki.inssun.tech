@@ -220,6 +220,11 @@
     区分大小写
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    空格、换行符和格式控制符
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -253,6 +258,11 @@
     区分大小写
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    空格、换行符和格式控制符
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -265,11 +275,27 @@
 <h2 id="_2">区分大小写</h2>
 <p>JavaScript 是严格区分大小写的语言。也就是说，关键词、变量、函数名和所有标识符都必须采用一致的大小写形式。譬如，关键词<code class="language-JavaScript highlight"><span class="k">while</span></code>必须写成<code class="language-JavaScript highlight"><span class="k">while</span></code>，而不可以写成<code class="language-JavaScript highlight"><span class="nx">While</span></code>亦或是<code class="language-JavaScript highlight"><span class="nx">WHILE</span></code>。同样，<code class="language-JavaScript highlight"><span class="nx">online</span></code>、<code class="language-JavaScript highlight"><span class="nx">Online</span></code>、<code class="language-JavaScript highlight"><span class="nx">OnLine</span></code>和<code class="language-JavaScript highlight"><span class="nx">ONLINE</span></code>是 4 个不同的变量名。</p>
 <p>但需要注意的是，HTML 并不区分大小写（尽管 XHTML 区分大小写）。由于它和客户端 JavaScript 联系紧密，因此这点区别很容易混淆<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。许多客户端 JavaScript 对象和数学与他们所表示的 HTML 标签和属性同名。在 HTML 中，这些标签和属性名可以使用大写也可以是小写，而在 JavaScript 中则必须是小写。例如，在 HTML 中设置事件处理程序是，<code class="language-JavaScript highlight"><span class="nx">onclick</span></code>数学可以写成<code class="language-JavaScript highlight"><span class="nx">onClick</span></code>，但是在 JavaScript 代码（或者 XHTML 文档）中，必须使用小写的<code class="language-JavaScript highlight"><span class="nx">onclick</span></code>。</p>
+<h2 id="_3">空格、换行符和格式控制符</h2>
+<p>JavaScript 会忽略程序中的标识之间的空格。多数情况下，JavaScript 同样会忽略换行符。㝼可以在代码中随意使用空格和换行，因此可以采用整齐、一致的缩进来形成统一的编码风格，从而提高代码的可读性。</p>
+<p>除了可以识别普通的空格符（\u0020），JavaScript 还可以识别如下这些表示空格的字符：水平制表符、垂直制表符、换页符、不中断空白、字节序标记，以及在 Unicode 中所有 Zs 类别的字符<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。JavaScript 将如下字符识别为行结束符：换行符、回车符、行分隔符、段分隔符。回车符加换行在一起被解析为一个单行结束符。</p>
+<p>Unicode 格式控制字符（Cf类<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>），比如“从右至左书写标记”（\u200F）和“从左至右书写标记”（\u200E）<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>，控制这文本的视觉显示，这对于一些非英语文本的正确显示来说是至关重要的，这些字符可以用在 JavaScript 的注释、字符串直接量和正则表达式直接量中，但不能用在标识符（比如，变量名）中。但有个例外，零宽连接符（\u200D）和零宽非连接符（\uFEFF）<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>是可以出现在标识符中的，但不能作为标识符的首字符。上文也提到了，字节序标记格式控制符（\uFEFF）被当成了空格来对待。</p>
 <div class="footnote">
 <hr/>
 <ol>
 <li id="fn:1">
 <p>严格来讲 XHTML 是区分大小写的，但由于浏览器有着非常强大的纠错能力。即使文档中包含很多不严格的大小写，浏览器还是比较“宽容”地正确解析渲染。 <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>Unicode 时其所有字符都做了分类，这种分类使用“通用类别值”标识，这里的“Zs”既是其中一种类别值，特指没有标志符号但不属于控制或格式字符的空格字符。更多类别值的描述请参见 <a href="https://www.unicode.org/reports/tr44/">UNICODE CHARACTER DATABASE</a> 中关于 General Category Values 的内容。 <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>Cf 是 Unicode 中的一种“通用类别值”，指代那些影响文本布局或文本处理操作但通常不会呈现的格式字符。 <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:4">
+<p>“从右至左书写标记”和“从左至右书写标记”均属于双向字符集语言，字符是带有方向的，比如在阿拉伯语言中，标点位于单词的左侧，而不是我们通常熟悉的右侧。 <a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:5">
+<p>ZERO WIDTH(NON-)JOINER，零宽（非）连接符，指没有宽度的不可见连接符，在汶汶、满文、锡伯文等少数名族语言中会使用到。 <a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">↩</a></p>
 </li>
 </ol>
 </div>
